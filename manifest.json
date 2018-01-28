@@ -1,0 +1,30 @@
+{
+  "name": "ToDo",
+  "short_name": "ToDo",
+  "icons": [{
+    "src": "/static/images/icon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "/static/images/icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "/static/images/icon.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "/static/images/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "/static/images/icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }],
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#3E4EB8",
+  "theme_color": "#2F3BA2"
+}

@@ -1,0 +1,31 @@
+.navigation-bar {
+	background-color: #9cb9bd;
+	width: 100%;
+	height: 12vh;
+/*	height: 80px;*/
+	top:0;
+}
+
+.navigation-bar .go-back {
+	float: left;
+	font-size: 10vw;
+	margin-left: 4vw;
+	color: white;
+}
+
+.navigation-bar .user-profile {
+	float: right;
+	font-size: 10vw;
+	margin-right: 4vw;
+	color: white;
+}
+
+.navigation-bar .header-title {
+	display:block;
+	text-align: center;
+	width: 100%;
+	padding-top: 3vh;
+	color: white;
+	font-family: 'Karla';
+	font-size: 7vw;
+}

@@ -1,0 +1,29 @@
+html {
+	/*background-color: lightpink;*/
+	margin: 0 auto;
+	/*max-width: 1000px;*/
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+body {
+	margin: 0;
+}
+
+.mobile-page {
+	position: absolute;
+	width: 100%;
+}
+
+#container {
+    background-color: lightpink;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+}

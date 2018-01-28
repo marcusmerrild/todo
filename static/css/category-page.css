@@ -1,0 +1,40 @@
+#category-page {
+	height: 100%;
+	background-color: lightpink;
+}
+
+#image-inspiration{
+		background-image: url("/static/images/pic_c_new.png");
+}
+
+#image-events{
+		background-image: url("/static/images/pic_b_new.png");
+}
+
+#image-all{
+		background-image: url("/static/images/pic_a_new.png");
+}
+
+.image-container {
+	width: 100%;
+	background-size: 100%;
+	position: relative;
+	background-repeat: no-repeat;
+}
+
+.image-container .context {
+	position: relative;
+	width: 90%;
+	top: 60%;
+	left: 5%;
+	color: white;
+	font-family: 'Karla';
+}
+
+.image-container .context .image-text-header {
+	font-size: 30px;
+}
+
+.image-container .context .image-text-content {
+	font-size: 14px;
+}

@@ -1,0 +1,36 @@
+#container-pc {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 60px;
+    background-color: antiquewhite;
+    width: 50%;
+    min-width: 500px;
+    text-align: center;
+    height: 50%;
+}
+
+#container-pc .title-text {
+    font-size: 20px;
+    font-family: 'Karla';
+}
+
+.carousel-pc .carousel-images {
+    color: aliceblue;
+    font-size: 40px;
+    font-family: 'Karla';
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-pc #image-a {
+    background-image: url(/static/images/pic_a_new.png);
+}
+
+.carousel-pc #image-b {
+    background-image: url(/static/images/pic_b_new.png);
+}
+
+.carousel-pc #image-c {
+    background-image: url(/static/images/pic_c_new.png);
+}

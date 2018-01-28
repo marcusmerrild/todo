@@ -1,0 +1,35 @@
+#welcome-page {
+	height: 100vh;
+	background-image: url("/static/images/welcome-background.png");
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+.logo-container {
+	height: 35vh;
+	background-image: url("/static/images/welcome-logo.png");
+	background-size: 30vh;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.welcome-header {
+	margin-top: 2vh;
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	color: black;
+	font-family: 'Karla';
+	font-weight: 800;
+	font-size: 5vh;
+}
+
+.welcome-content {
+	width: 90%;
+	margin-top: 3vh;
+	margin-bottom: 3vh;
+	margin-left: 5%;
+	color: black;
+	font-family: 'Karla';
+	font-size: 16px;
+}

@@ -1,0 +1,377 @@
+<html lang="da">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/mobile-page.css">
+	<link rel="stylesheet" type="text/css" href="static/css/welcome-page.css">
+	<link rel="stylesheet" type="text/css" href="static/css/category-page.css">
+	<link rel="stylesheet" type="text/css" href="static/css/calendar-page.css">
+	<link rel="stylesheet" type="text/css" href="static/css/event-page.css">
+	<link rel="stylesheet" type="text/css" href="static/css/navigation-bar.css">
+	<link rel="stylesheet" type="text/css" href="static/css/conform-elements.css">
+	<link rel="stylesheet" type="text/css" href="static/css/container-pc.css">
+	<link rel="stylesheet" type="text/css" href="static/css/slick.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/slick-theme.css" />
+	<link rel="stylesheet" type="text/css" href="static/css/swipe.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<link rel="manifest" href="/manifest.json">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="ToDo">
+	<link rel="apple-touch-icon" href="/static/images/icon.png">
+	<link rel="apple-touch-startup-image" href="/static/images/icon.png">
+</head>
+
+<body>
+
+	<div id="container" style="display: none">
+
+		<!-- modal wher user can sing out and see assigned upcoming events -->
+		<div class="modal fade" id="modalUserProfile" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Brugermenu</h4>
+					</div>
+					<div class="modal-body">
+						<button type="button" class="todo-button-styling" id="btnSignOut">
+							<span class="span-text">
+								Log mig ud
+							</span>
+							<span class="span-icon">
+								<span class="span-icon"><i class="fa fa-sign-out"></i></span>
+							</span>
+						</button>
+						<button type="button" class="todo-button-styling" id="btnShowMyEvents" style="margin-top:1vh">
+							<span class="span-text">
+								Mine begivenheder
+							</span>
+							<span class="span-icon">
+								<span class="span-icon"><i class="fa fa-list"></i></span>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div> <!-- modalUserProfile-->
+
+		<div class="mobile-page" id="event-page" style="display: none;">
+			<div class="navigation-bar" id="navigation-event">
+
+				<div class="navigation-content">
+					<span class="header-title">
+						Swipe
+						<a href="#" id="back-calendar-event">
+							<i class="fa fa-arrow-circle-o-left go-back"></i>
+						</a>
+						<a data-toggle="modal" href="#modalUserProfile" class="hrefShowUserProfile">
+							<i class="fa fa-user-circle-o user-profile"></i>
+						</a>
+					</span><!-- header-title -->
+				</div><!-- navigation-content -->
+
+			</div>
+
+			<div class="event-carousel-container">
+				<!-- populated through jQuery-->
+			</div>
+			
+			<input type="hidden" name="carouselCount" value="Norway">
+			<button class="todo-button-styling" style="margin-top:2vh">
+				<span class="span-text">
+					Mere info
+				</span>
+				</button>
+			<button class="todo-button-styling"  style="margin-top:1vh">
+				<span class="span-text">
+					Vis interesse
+				</span>
+			</button>
+			<button class="todo-button-styling" style="margin-top:1vh">
+			<span class="span-text">
+				Se hvem der ellers kommer
+				</span>
+			</button>
+		</div>
+
+		<div class="mobile-page" id="calendar-page" style="display: none;">
+
+			<div class="navigation-bar" id="navigation-calender">
+				<div class="navigation-content">
+					<span class="header-title">
+						Vælg datoer
+						<a href="#" id="back-category-calender">
+							<i class="fa fa-arrow-circle-o-left go-back"></i>
+						</a>
+						<a data-toggle="modal" href="#modalUserProfile" class="hrefShowUserProfile">
+							<i class="fa fa-user-circle-o user-profile"></i>
+						</a>
+					</span> <!-- header-title -->
+				</div> <!-- navigation-content -->
+			</div> <!-- navigation-calender-->
+
+
+			<table id="datepicker-table-header">
+				<!-- populated through jQuery-->
+			</table>
+
+			<table id="datepicker-table-content">
+				<!-- populated through jQuery-->
+			</table>
+
+
+			<button class="todo-button-styling" id="btnFindEvents">
+				<span class="span-text">Se events på valgte datoer</span>
+				<span class="span-icon"><i class="fa fa-chevron-right"></i></span>
+			</button>
+
+		</div> <!-- calendar-page-->
+
+		<div class="mobile-page" id="category-page" style="display: none;">
+
+			<div class="navigation-bar" id="navigation-category">
+
+				<div class="navigation-content">
+					<span class="header-title">
+						Vælg en kategori
+						<a href="#" id="back-welcome-category">
+							<i class="fa fa-arrow-circle-o-left go-back"></i>
+						</a>
+						<a data-toggle="modal" href="#modalUserProfile" class="hrefShowUserProfile">
+							<i class="fa fa-user-circle-o user-profile"></i>
+						</a>
+					</span> <!-- header-title -->
+				</div> <!-- navigation-content -->
+
+			</div>
+
+			<a class="select-category" id="inspiration">
+				<div class="image-container" id="image-inspiration">
+					<div class="context">
+						<div class="image-text-header">
+							Inspitation
+						</div>
+						<div class="image-text-content">
+							Brug for inspiration til weekenden? Tryk her
+						</div>
+					</div>
+				</div>
+			</a>
+
+			<a class="select-category" id="events">
+				<div class="image-container" id="image-events">
+					<div class="context">
+						<div class="image-text-header">
+							Events
+						</div>
+						<div class="image-text-content">
+							Skal du ud med veninderne? Se alle events
+						</div>
+					</div>
+				</div>
+			</a>
+
+			<a class="select-category" id="all">
+				<div class="image-container" id="image-all">
+					<div class="context">
+						<div class="image-text-header">
+							Alle
+						</div>
+						<div class="image-text-content">
+							Skal du ud med veninderne? Se alle events
+						</div>
+					</div>
+				</div>
+			</a>
+		</div> <!-- category-page-->
+
+		<div class="mobile-page" id="welcome-page">
+			<div class="logo-container">
+			</div>
+			
+			<!-- if user is not signed in-->
+			<div class="welcome-header" id="txtWelcomeNotSignedIn" style="display: none;">
+				Log dig ind, og se hvad der sker i Kbh.
+			</div>
+			
+			<!-- if user is signed in-->
+			<div class="welcome-header" id="txtWelcomeSignedIn" style="display: none;">
+				Velkommen <span id="txtUserName"></span>, hvad skal du lave i dag?
+			</div>
+
+			<div class="welcome-content">
+				Lorem ipsum dolor sit amet, nulla libero fusce id aliquam taciti, ultricies dignissim, ante interdum, vestibulum vestibulum wisi amet metus at in. Felis tortor consectetuer quam.
+			</div>
+
+			<!-- if user is signed in, this button will direct to next page-->
+			<button type="button" class="todo-button-styling" id="btnShowCategories" style="display: none;">
+				<span class="span-text">
+					Vis mig hvad der sker
+				</span>
+				<span class="span-icon">
+					<span class="span-icon"><i class="fa fa-chevron-right"></i></span>
+				</span>
+			</button>
+
+			<!-- if user is not signed in, this button will appear, and on click it will show modal-->
+			<button type="button" class="todo-button-styling" id="btnShowSignInModal" data-toggle="modal" data-target="#modalSignIn" style="display: none;">
+				<span class="span-text">
+					Log ind her
+				</span>
+				<span class="span-icon">
+					<span class="span-icon"><i class="fa fa-sign-in"></i></span>
+				</span>
+			</button>
+
+
+			<!-- modal for log in and sign up-->
+			<div class="modal fade" id="modalSignIn" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">LOG IND</h4>
+						</div>
+						<div class="modal-body">
+							<form method="post" id="frmSignIn">
+								<div class="form-group">
+									<input type="text" name="username" autofocus="" maxlength="254" placeholder="Brugernavn" class="form-control input-lg" required="" id="id_username">
+								</div>
+								<div class="form-group">
+									<input type="password" name="password" placeholder="Adgangskode" class="form-control input-lg" required="" id="id_password">
+								</div>
+							</form>
+							<button type="button" class="todo-button-styling" id="btnSignIn">
+								<span class="span-text">
+									Log mig ind
+								</span>
+								<span class="span-icon">
+									<span class="span-icon"><i class="fa fa-sign-in"></i></span>
+						  		</span>
+							</button>
+							<button type="button" class="todo-button-styling" id="btnShowCreateUserModal"  style="margin-top:1vh">
+								<span class="span-text">
+									Ikke oprettet?
+								</span>
+								<span class="span-icon">
+									<span class="span-icon"><i class="fa fa-plus"></i></span>
+						  		</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div><!-- modalSignIn-->
+			
+			<!--modal for creating a user profile-->
+			<div class="modal fade" id="modalCreateUser" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">OPRET BRUGER</h4>
+						</div>
+						<div class="modal-body">
+							<form method="post" id="frmCreateUser">
+								<div class="form-group">
+                                	<input type="text" name="username" maxlength="150" autofocus="" placeholder="Brugernavn" class="form-control input-lg" required=""> 
+                            	</div>
+								<div class="form-group">
+                                	<input type="email" name="email" maxlength="200" placeholder="Email" class="form-control input-lg" required=""> 
+                            	</div>
+								<div class="form-group">
+                                	<input type="password" name="password1" placeholder="Adgangskode" class="form-control input-lg" required=""> 
+								</div>
+								<div class="form-group">
+                               		<input type="password" name="password2" placeholder="Adgangskode igen" class="form-control input-lg" required=""> 
+                            	</div>
+							</form>
+							<button type="button" class="todo-button-styling" id="btnCreateUser">
+								<span class="span-text">
+									Opret bruger
+								</span>
+								<span class="span-icon">
+									<span class="span-icon"><i class="fa fa-plus"></i></span>
+						  		</span>
+							</button>
+							<span class="errors" id="ErrorCreatingUser"></span>
+						</div>
+					</div>
+				</div>
+			</div> <!-- modal-->
+			
+			<!-- modal for succesfully creating a user profile-->
+			<div class="modal fade" id="modalUserCreated" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">DU ER NU OPRETTET</h4>
+						</div>
+						<div class="modal-body">
+							<div style="text-align:center;">
+								<i class="fa fa-check fa-4x mb-3 animated rotateIn" style="color:green;"></i>
+							<p>
+								Du er næsten færdig, det eneste du mangler er at aktivere din konto gennem det link vi har sendt til din mail (husk at checke Spam-mappen.)
+							</p>
+								</div>
+							<button type="button" class="todo-button-styling" data-dismiss="modal">
+								<span class="span-text">
+									Okay
+								</span>
+							</button>
+							
+						</div>
+					</div>
+				</div>
+			</div> <!-- modal-->
+		</div> <!-- welcome-page-->
+	</div><!-- container-->
+
+	<!--	this section is shown, if the site is accesed from a none-mobile device-->
+	<div id="container-pc" style="display: none">
+		<span class="title-text">
+            You are shit out of luck - vi understøtter desværre kun mobile enheder.
+        </span>
+		<div class="carousel-pc">
+			<div class="carousel-images" id="image-a">Some instruction to <br> install your #a</div>
+			<div class="carousel-images" id="image-b">Some instruction to <br> install your #b</div>
+			<div class="carousel-images" id="image-c">Some instruction to <br> install your #c</div>
+		</div>
+	</div> <!-- container-pc-->
+
+	<script>
+		// initiate service worker
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('service-worker.js')
+				.then(function(registration) {
+					console.log('Service Worker registration successful with scope: ',
+						registration.scope);
+				})
+				.catch(function(err) {
+					console.log('Service Worker registration failed: ', err);
+				});
+		}
+
+	</script>
+	<!-- standards scripts-->
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/js.cookie.js"></script>
+	<script src="static/js/slick.js"></script>
+	
+	<!-- custom scripts-->
+	<script src="/static/js/swipe.js"></script>
+	<script src="/static/js/api-calls.js"></script>
+	<script src="/static/js/calendar-page.js"></script>
+	<script src="/static/js/mobile-page.js"></script>
+	<script src="/static/js/welcome-page.js"></script>
+	<script src="static/js/on-startup.js"></script>
+
+</body>
+
+</html>
